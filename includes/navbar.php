@@ -65,7 +65,15 @@
                     </div>
                     </div>
                     <div class="it-access-top-wrapper">
-                    <a class="btn btn-primary btn-sm" href="login.php">Accedi</a>
+                    <?php
+                        // Depending on whether the user is logged in or not,
+                        // display the button to log-in or log-out
+                        if (isset($_SESSION["role"])) {
+                            echo '<a class="btn btn-primary btn-sm" href="login.php">Accedi</a>';
+                        } else {
+                            echo '<a class="btn btn-primary btn-sm" href="includes/logout.inc.php">Esci</a>';
+                        }
+                    ?>
                     </div>
                 </div>
                 </div>
