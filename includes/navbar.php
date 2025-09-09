@@ -27,7 +27,7 @@
             <div class="row">
             <div class="col-12">
                 <div class="it-header-slim-wrapper-content">
-                <a class="d-none d-lg-block navbar-brand" href="https://github.com/nictarter/Gestione-Studente.git">Gestione Studente</a>
+                <a class="d-none d-lg-block navbar-brand" href="https://github.com/nictarter/gestione-studente.git">Gestione Studente</a>
                 <div class="nav-mobile">
                     <nav aria-label="Navigazione accessoria">
                     <a class="it-opener d-lg-none" data-bs-toggle="collapse" href="#menu1a" role="button" aria-expanded="false" aria-controls="menu4">
@@ -69,9 +69,9 @@
                         // Depending on whether the user is logged in or not,
                         // display the button to log-in or log-out
                         if (isset($_SESSION["role"])) {
-                            echo '<a class="btn btn-primary btn-sm" href="login.php">Accedi</a>';
-                        } else {
                             echo '<a class="btn btn-primary btn-sm" href="includes/logout.inc.php">Esci</a>';
+                        } else {
+                            echo '<a class="btn btn-primary btn-sm" href="login.php">Accedi</a>';
                         }
                     ?>
                     </div>

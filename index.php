@@ -10,7 +10,6 @@
     session_start();
     
     // Check if the user is logged in:
-    $_SESSION["role"] = "cici";
     if (!isset($_SESSION["role"])) {
         header("Location: login.php");
     }
@@ -74,20 +73,21 @@
                 <h3 class="text-white">Lezioni</h3>
                 <?php
                     // Display all (if any) of the lessons that need to be saved:
+                    // In case there are none, just say that all lessons are currently saved
                     if ($lessonsToCheck->rowCount() === 0) {
                         echo '<p class="text-white">Al momento tutte le lezioni risultano salvate correttamente.</p>';
                     } else {
+                        echo '<div class="row">';
                         while ($lessonToCheck = $lessonsToCheck->fetch(PDO::FETCH_OBJ)) {
-                            echo '<div class="row">';
-                            echo '<div class="col-3 border rounded bg-white mx-3 mb-3 p-2">';
+                            echo '<div class="col-3 border rounded bg-white mx-3 mb-3 p-2 ms-5 me-5">';
                             echo '<p class="fw-bold mb-2">' . ucfirst($lessonToCheck->subject) . '</p>';
                             echo '<p>Docente : ' . ucwords($lessonToCheck->teacher) . '</p>';
                             echo '<p>Orario : ' . $lessonToCheck->startHour . ' - ' . $lessonToCheck->endHour . '</p>';
-                            echo '<button class="btn btn-success">Convalida</button>';
-                            echo '<button class="btn btn-warning">Sostituzione</button>';
-                            echo '</div>';
+                            echo '<button class="btn btn-success me-1">Convalida</button>';
+                            echo '<button class="btn btn-warning ms-1">Sostituisci</button>';
                             echo '</div>';
                         }
+                        echo '</div">';
                     }
                 ?>
             </div>
